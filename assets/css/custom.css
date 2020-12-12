@@ -1,0 +1,11 @@
+.iti--allow-dropdown {
+    width: 100%;
+}
+
+.toast-body.alert {
+    border-radius: 10px;
+}
+
+html {
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "webservices/rest",
+  "type": "project",
+  "description": "A Project to Showcase a Web Service using Rest",
+  "license": "MIT",
+  "require": {
+    "php": "^7.1",
+    "ext-json": "*",
+    "guzzlehttp/guzzle": "^7.2",
+    "vlucas/phpdotenv": "^5.2"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "controllers/",
+      "Core\\": "core/"
+    }
+  }
+}
