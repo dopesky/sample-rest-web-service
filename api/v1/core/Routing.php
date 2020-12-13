@@ -53,6 +53,6 @@ class Routing {
 
 	private static function is_replaceable($value) {
 		$value = trim($value);
-		return strpos($value, "{") === 0 && strpos($value, "}") === strlen($value) - 1;
+		return str_starts_with($value, "{") && str_ends_with($value, "}");
 	}
 }
