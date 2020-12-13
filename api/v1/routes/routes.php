@@ -1,4 +1,6 @@
 <?php
 
-$routes = [["method" => "post", "path" => "/students", "action" => "Student::addStudent"],
-	["path" => "/students/{admission_number}", "action" => "Student::fetchStudent"]];
+use Core\Routing;
+
+Routing::post("/students", "Student::addStudent");
+Routing::get("/students/{admission_number}", "Student::fetchStudent");

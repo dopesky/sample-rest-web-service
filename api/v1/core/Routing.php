@@ -2,8 +2,18 @@
 
 namespace Core;
 class Routing {
-	static function get_action($routes, $filename) {
-		foreach ($routes as $route) {
+	private static $routes = [];
+
+	static function post($path = '/', $action = '') {
+		Routing::$routes[] = ["method" => "post", "path" => $path, "action" => $action];
+	}
+
+	static function get($path = '/', $action = '') {
+		Routing::$routes[] = ["method" => "get", "path" => $path, "action" => $action];
+	}
+
+	static function get_action($filename) {
+		foreach (Routing::$routes as $route) {
 			$route['method'] = $route['method'] ?? "get";
 			["method" => $method, "path" => $path, "action" => $action] = $route;
 			if (strcasecmp($method, $_SERVER['REQUEST_METHOD']) === 0) {

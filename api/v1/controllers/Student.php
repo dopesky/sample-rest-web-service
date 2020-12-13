@@ -33,10 +33,10 @@ class Student {
 					$database->insert_student($student);
 					return ['ok' => true, 'message' => "Student Successfully Registered! Your Admission Number is {$student['admission_number']}."];
 				} catch (Exception $ex) {
-					return ['ok' => false, 'error' => $ex->getMessage()];
+					return ['ok' => false, 'error' => $ex->getMessage(), "status" => 500];
 				}
-			} else return ['ok' => false, 'errors' => $errors];
-		} else return ['ok' => false, 'error' => 'Ensure All Fields are Filled!', 'post' => $_POST];
+			} else return ['ok' => false, 'errors' => $errors, 'status' => 422];
+		} else return ['ok' => false, 'error' => 'Ensure All Fields are Filled!', 'status' => 400];
 	}
 
 	function fetchStudent($admission_number) {
@@ -46,7 +46,7 @@ class Student {
 			$student['full_name'] = "{$student['last_name']} {$student['first_name']}";
 			return ['ok' => true, 'student' => $student];
 		} catch (Exception $e) {
-			return ['ok' => false, 'error' => $e->getMessage()];
+			return ['ok' => false, 'error' => $e->getMessage(), 'status' => 500];
 		}
 	}
 

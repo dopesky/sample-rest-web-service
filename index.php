@@ -338,6 +338,7 @@
             data: formData,
             method: 'POST'
         }).always((data) => {
+            if (data.status !== 200) data = data.responseJSON
             infiscroll.toggleButton({button, html: "Submit Form"})
             if (data.ok) {
                 const inputs = $("input");
@@ -369,6 +370,7 @@
             dataType: 'json',
             headers: {"Accept": "application/json"},
         }).always((data) => {
+            if (data.status !== 200) data = data.responseJSON
             infiscroll.toggleButton({button, html: "Submit Form"})
             if (data.ok) {
                 const inputs = $("input");

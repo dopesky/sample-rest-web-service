@@ -4,7 +4,7 @@
   "description": "A Project to Showcase a Web Service using Rest",
   "license": "MIT",
   "require": {
-    "php": "^7.1",
+    "php": "~7.1",
     "ext-json": "*",
     "guzzlehttp/guzzle": "^7.2",
     "vlucas/phpdotenv": "^5.2"
